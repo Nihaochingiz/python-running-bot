@@ -7,6 +7,7 @@ import re
 
 
 load_dotenv()
+
 init_table()
 
 BOT_TOKEN = os.getenv('BOT_TOKEN')
@@ -14,7 +15,7 @@ bot = telebot.TeleBot (BOT_TOKEN)
 
 
 @bot.message_handler(func=lambda message: True)  # Capture all messages sent to the bot
-def create_record(message):
+def create_message(message):
     if '-' in message.text and len(message.text.split('-')) == 2:
         dist, time = message.text.split('-')
         
